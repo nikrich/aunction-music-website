@@ -60,7 +60,7 @@ function HeroSection() {
       className="hero-gradient noise-overlay relative flex flex-col items-center justify-center min-h-screen px-6 text-center overflow-hidden"
     >
       <p className="text-sm uppercase tracking-[0.3em] text-muted mb-6">
-        The New Album
+        The New Single
       </p>
       <h1 className="text-7xl md:text-9xl font-black tracking-tight text-foreground leading-none">
         Auction
@@ -72,7 +72,7 @@ function HeroSection() {
         A Century
       </h2>
       <p className="mt-4 text-muted max-w-md">
-        Our debut album is out now. A journey through sound, time, and everything in between.
+        Our debut single is out now. A journey through sound, time, and everything in between.
       </p>
       <div className="mt-10 flex flex-col sm:flex-row gap-4">
         <a
@@ -113,7 +113,7 @@ function ReleaseSection() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-16 items-center">
-          {/* Album artwork placeholder */}
+          {/* Single artwork placeholder */}
           <div className="flex justify-center">
             <div className="album-glow relative w-80 h-80 md:w-96 md:h-96 rounded-sm overflow-hidden bg-surface">
               <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-accent-dim/20 to-surface">
@@ -131,7 +131,7 @@ function ReleaseSection() {
           <div>
             <p className="text-muted leading-relaxed mb-8">
               A Century captures the raw energy and emotional depth of Auction.
-              Spanning genres and moods, this album is a testament to the
+              Spanning genres and moods, this single is a testament to the
               band&apos;s vision — dark, atmospheric, and unapologetically bold.
             </p>
 
