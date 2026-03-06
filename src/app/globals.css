@@ -9,11 +9,54 @@
   --color-accent-dim: #6d28d9;
   --color-muted: #737373;
 
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+}
+
+/* Hero gradient overlay */
+.hero-gradient {
+  background: radial-gradient(ellipse at 50% 0%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 50%, rgba(109, 40, 217, 0.08) 0%, transparent 50%),
+              linear-gradient(to bottom, #0a0a0a, #0f0f0f);
+}
+
+/* Subtle noise texture overlay */
+.noise-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Divider line with gradient fade */
+.divider-glow {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.4), transparent);
+}
+
+/* Album cover glow effect */
+.album-glow {
+  box-shadow: 0 0 60px rgba(139, 92, 246, 0.2), 0 0 120px rgba(139, 92, 246, 0.1);
+}
+
+/* Streaming button hover glow */
+.stream-btn {
+  transition: all 0.3s ease;
+}
+.stream-btn:hover {
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Nav blur backdrop */
+.nav-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
