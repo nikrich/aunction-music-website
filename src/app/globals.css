@@ -41,7 +41,7 @@ body {
   background: linear-gradient(to right, transparent, rgba(139, 92, 246, 0.4), transparent);
 }
 
-/* Album cover glow effect */
+/* Single cover glow effect */
 .album-glow {
   box-shadow: 0 0 60px rgba(139, 92, 246, 0.2), 0 0 120px rgba(139, 92, 246, 0.1);
 }
@@ -52,11 +52,63 @@ body {
 }
 .stream-btn:hover {
   box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
 
 /* Nav blur backdrop */
 .nav-blur {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+/* Nav link hover underline */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-accent);
+  transition: width 0.3s ease;
+}
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Scroll-triggered fade-in-up animation */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for child elements */
+.fade-in-up:nth-child(2) { transition-delay: 0.1s; }
+.fade-in-up:nth-child(3) { transition-delay: 0.2s; }
+.fade-in-up:nth-child(4) { transition-delay: 0.3s; }
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* Release card hover effect */
+.release-card {
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.release-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 40px rgba(139, 92, 246, 0.15);
 }
