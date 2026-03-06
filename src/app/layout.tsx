@@ -9,9 +9,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Auction - A Century",
+  metadataBase: new URL("https://nikrich.github.io"),
+  title: "Auction — A Century",
   description:
-    "Official website for the band Auction. Listen to the new album A Century now.",
+    "Listen to A Century, the debut single from Auction. Out now on all streaming platforms including Spotify, Apple Music, and more.",
+  openGraph: {
+    title: "Auction — A Century",
+    description:
+      "Listen to A Century, the debut single from Auction. Out now on all streaming platforms.",
+    type: "music.song",
+    images: [
+      {
+        url: "/aunction-music-website/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "Auction — A Century",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Auction — A Century",
+    description:
+      "Listen to A Century, the debut single from Auction. Out now on all streaming platforms.",
+    images: ["/aunction-music-website/og-image.svg"],
+  },
 };
 
 export default function RootLayout({
