@@ -28,12 +28,6 @@ const SOCIAL_LINKS = [
   { name: "TikTok", href: "#" },
 ];
 
-const BAND_MEMBERS = [
-  { role: "Vocals / Guitar", name: "Placeholder Name" },
-  { role: "Bass", name: "Placeholder Name" },
-  { role: "Drums", name: "Placeholder Name" },
-  { role: "Keys / Synth", name: "Placeholder Name" },
-];
 
 function useScrollAnimation() {
   useEffect(() => {
@@ -270,7 +264,7 @@ function AboutSection() {
           </h2>
         </div>
 
-        <div className="fade-in-up grid md:grid-cols-2 gap-12 items-start">
+        <div className="fade-in-up mx-auto max-w-2xl">
           <div className="space-y-6">
             <div className="album-glow rounded-sm overflow-hidden mb-6">
               <img
@@ -292,20 +286,6 @@ function AboutSection() {
             </p>
           </div>
 
-          <div>
-            <h3 className="text-sm uppercase tracking-[0.3em] text-accent mb-6">Members</h3>
-            <div className="space-y-4">
-              {BAND_MEMBERS.map((member) => (
-                <div
-                  key={member.role}
-                  className="flex items-center justify-between border-b border-white/5 pb-4"
-                >
-                  <span className="text-foreground/80">{member.name}</span>
-                  <span className="text-xs text-muted uppercase tracking-wider">{member.role}</span>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
     </section>
