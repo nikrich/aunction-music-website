@@ -1,3 +1,7 @@
+"use client";
+
+import { useEffect } from "react";
+
 const SMART_LINK = "https://ditto.fm/a-century";
 
 const STREAMING_PLATFORMS = [
@@ -11,6 +15,7 @@ const STREAMING_PLATFORMS = [
 const NAV_LINKS = [
   { label: "Home", href: "#home" },
   { label: "Release", href: "#release" },
+  { label: "Music", href: "#music" },
   { label: "About", href: "#about" },
 ];
 
@@ -21,6 +26,31 @@ const SOCIAL_LINKS = [
   { name: "YouTube", href: "#" },
   { name: "TikTok", href: "#" },
 ];
+
+const BAND_MEMBERS = [
+  { role: "Vocals / Guitar", name: "Placeholder Name" },
+  { role: "Bass", name: "Placeholder Name" },
+  { role: "Drums", name: "Placeholder Name" },
+  { role: "Keys / Synth", name: "Placeholder Name" },
+];
+
+function useScrollAnimation() {
+  useEffect(() => {
+    const elements = document.querySelectorAll<Element>(".fade-in-up");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+    );
+    elements.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+}
 
 function Navbar() {
   return (
@@ -34,7 +64,7 @@ function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-muted hover:text-foreground transition-colors duration-300"
+              className="nav-link text-sm text-muted hover:text-foreground transition-colors duration-300"
             >
               {link.label}
             </a>
@@ -103,7 +133,7 @@ function ReleaseSection() {
   return (
     <section id="release" className="relative py-32 px-6">
       <div className="mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        <div className="fade-in-up text-center mb-16">
           <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">
             Featured Release
           </p>
@@ -112,7 +142,7 @@ function ReleaseSection() {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-16 items-center">
+        <div className="fade-in-up grid md:grid-cols-2 gap-16 items-center">
           {/* Single artwork placeholder */}
           <div className="flex justify-center">
             <div className="album-glow relative w-80 h-80 md:w-96 md:h-96 rounded-sm overflow-hidden bg-surface">
@@ -172,21 +202,103 @@ function ReleaseSection() {
   );
 }
 
+function MusicSection() {
+  return (
+    <section id="music" className="relative py-32 px-6">
+      <div className="mx-auto max-w-6xl">
+        <div className="fade-in-up text-center mb-16">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">
+            Discography
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Music &amp; Releases
+          </h2>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Current single */}
+          <div className="fade-in-up release-card group relative rounded-sm overflow-hidden bg-surface border border-white/5 hover:border-accent/30">
+            <div className="aspect-square bg-gradient-to-br from-accent-dim/20 to-surface flex flex-col items-center justify-center">
+              <span className="text-5xl font-black text-foreground/10 tracking-tighter">A</span>
+              <span className="text-xs uppercase tracking-[0.4em] text-foreground/20 mt-1">Century</span>
+            </div>
+            <div className="p-6">
+              <p className="text-xs uppercase tracking-widest text-accent mb-1">2024 · Single</p>
+              <h3 className="text-lg font-semibold text-foreground mb-3">A Century</h3>
+              <a
+                href={SMART_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="stream-btn inline-block rounded-full bg-accent/20 hover:bg-accent px-4 py-1.5 text-xs font-medium text-foreground/80 hover:text-white border border-accent/30"
+              >
+                Stream Now
+              </a>
+            </div>
+          </div>
+
+          {/* Placeholder future releases */}
+          {[1, 2].map((i) => (
+            <div key={i} className="fade-in-up release-card relative rounded-sm overflow-hidden bg-surface border border-white/5 opacity-40">
+              <div className="aspect-square bg-surface-light flex items-center justify-center">
+                <span className="text-xs uppercase tracking-widest text-muted/50">Coming Soon</span>
+              </div>
+              <div className="p-6">
+                <p className="text-xs uppercase tracking-widest text-muted/30 mb-1">TBA</p>
+                <h3 className="text-base font-semibold text-muted/30">Upcoming Release</h3>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="divider-glow mt-32 mx-auto max-w-2xl" />
+    </section>
+  );
+}
+
 function AboutSection() {
   return (
     <section id="about" className="relative py-32 px-6">
-      <div className="mx-auto max-w-3xl text-center">
-        <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">
-          The Band
-        </p>
-        <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">
-          About Auction
-        </h2>
-        <p className="text-lg text-muted leading-relaxed">
-          Auction is a band built on contrasts — silence and noise, light and
-          dark, the intimate and the monumental. With A Century, they invite you
-          into a world where every note carries weight and every moment matters.
-        </p>
+      <div className="mx-auto max-w-4xl">
+        <div className="fade-in-up text-center mb-16">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">
+            The Band
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            About Auction
+          </h2>
+        </div>
+
+        <div className="fade-in-up grid md:grid-cols-2 gap-12 items-start">
+          <div className="space-y-6">
+            <p className="text-lg text-muted leading-relaxed">
+              Auction is a band built on contrasts — silence and noise, light and
+              dark, the intimate and the monumental. Formed from years of shared
+              experience and musical exploration, the band channels raw emotion
+              into a sound that defies easy categorization.
+            </p>
+            <p className="text-muted leading-relaxed">
+              With their debut single A Century, Auction invites you into a world
+              where every note carries weight and every moment matters. The track
+              is a declaration — bold, atmospheric, and unapologetically honest.
+            </p>
+          </div>
+
+          <div>
+            <h3 className="text-sm uppercase tracking-[0.3em] text-accent mb-6">Members</h3>
+            <div className="space-y-4">
+              {BAND_MEMBERS.map((member) => (
+                <div
+                  key={member.role}
+                  className="flex items-center justify-between border-b border-white/5 pb-4"
+                >
+                  <span className="text-foreground/80">{member.name}</span>
+                  <span className="text-xs text-muted uppercase tracking-wider">{member.role}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -208,7 +320,7 @@ function Footer() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm text-muted hover:text-foreground transition-colors duration-300"
+                className="nav-link text-sm text-muted hover:text-foreground transition-colors duration-300"
                 aria-label={link.name}
               >
                 {link.name}
@@ -228,12 +340,15 @@ function Footer() {
 }
 
 export default function Home() {
+  useScrollAnimation();
+
   return (
     <>
       <Navbar />
       <main>
         <HeroSection />
         <ReleaseSection />
+        <MusicSection />
         <AboutSection />
       </main>
       <Footer />
