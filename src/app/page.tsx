@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Image from "next/image";
 
 const SMART_LINK = "https://ditto.fm/a-century";
 
@@ -143,17 +144,16 @@ function ReleaseSection() {
         </div>
 
         <div className="fade-in-up grid md:grid-cols-2 gap-16 items-center">
-          {/* Single artwork placeholder */}
+          {/* Single artwork */}
           <div className="flex justify-center">
-            <div className="album-glow relative w-80 h-80 md:w-96 md:h-96 rounded-sm overflow-hidden bg-surface">
-              <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-accent-dim/20 to-surface">
-                <span className="text-6xl font-black text-foreground/10 tracking-tighter">
-                  A
-                </span>
-                <span className="text-sm uppercase tracking-[0.4em] text-foreground/20 mt-2">
-                  Century
-                </span>
-              </div>
+            <div className="album-glow relative w-80 h-80 md:w-96 md:h-96 rounded-sm overflow-hidden">
+              <Image
+                src="/aunction-music-website/song.png"
+                alt="A Century — single artwork"
+                fill
+                className="object-cover"
+                priority
+              />
             </div>
           </div>
 
@@ -218,9 +218,13 @@ function MusicSection() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Current single */}
           <div className="fade-in-up release-card group relative rounded-sm overflow-hidden bg-surface border border-white/5 hover:border-accent/30">
-            <div className="aspect-square bg-gradient-to-br from-accent-dim/20 to-surface flex flex-col items-center justify-center">
-              <span className="text-5xl font-black text-foreground/10 tracking-tighter">A</span>
-              <span className="text-xs uppercase tracking-[0.4em] text-foreground/20 mt-1">Century</span>
+            <div className="relative aspect-square">
+              <Image
+                src="/aunction-music-website/song.png"
+                alt="A Century — single artwork"
+                fill
+                className="object-cover"
+              />
             </div>
             <div className="p-6">
               <p className="text-xs uppercase tracking-widest text-accent mb-1">2024 · Single</p>
@@ -271,6 +275,14 @@ function AboutSection() {
 
         <div className="fade-in-up grid md:grid-cols-2 gap-12 items-start">
           <div className="space-y-6">
+            <div className="relative w-full aspect-[4/3] rounded-sm overflow-hidden mb-8">
+              <Image
+                src="/aunction-music-website/artist.jpg"
+                alt="Auction — band photo"
+                fill
+                className="object-cover"
+              />
+            </div>
             <p className="text-lg text-muted leading-relaxed">
               Auction is a band built on contrasts — silence and noise, light and
               dark, the intimate and the monumental. Formed from years of shared

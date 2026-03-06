@@ -20,10 +20,10 @@ export const metadata: Metadata = {
     type: "music.song",
     images: [
       {
-        url: "/aunction-music-website/og-image.svg",
+        url: "/aunction-music-website/song.png",
         width: 1200,
-        height: 630,
-        alt: "Auction — A Century",
+        height: 1200,
+        alt: "Auction — A Century single artwork",
       },
     ],
   },
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "Auction — A Century",
     description:
       "Listen to A Century, the debut single from Auction. Out now on all streaming platforms.",
-    images: ["/aunction-music-website/og-image.svg"],
+    images: ["/aunction-music-website/song.png"],
   },
 };
 
