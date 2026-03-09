@@ -18,6 +18,7 @@ const NAV_LINKS = [
   { label: "Release", href: "#release" },
   { label: "Music", href: "#music" },
   { label: "About", href: "#about" },
+  { label: "Contact", href: "#contact" },
 ];
 
 const SOCIAL_LINKS = [
@@ -292,6 +293,35 @@ function AboutSection() {
   );
 }
 
+function ContactSection() {
+  return (
+    <section id="contact" className="relative py-32 px-6">
+      <div className="mx-auto max-w-4xl">
+        <div className="fade-in-up text-center mb-16">
+          <p className="text-sm uppercase tracking-[0.3em] text-accent mb-3">
+            Get In Touch
+          </p>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
+            Contact Me
+          </h2>
+        </div>
+
+        <div className="fade-in-up text-center">
+          <p className="text-lg text-muted leading-relaxed mb-8">
+            For bookings, collaborations, or just to say hello — reach out via email.
+          </p>
+          <a
+            href="mailto:jr.guitarfreak@gmail.com"
+            className="inline-block text-lg md:text-xl font-medium text-accent hover:text-foreground transition-colors duration-300"
+          >
+            jr.guitarfreak@gmail.com
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function Footer() {
   return (
     <footer className="border-t border-white/5 py-16 px-6">
@@ -338,6 +368,7 @@ export default function Home() {
         <ReleaseSection />
         <MusicSection />
         <AboutSection />
+        <ContactSection />
       </main>
       <Footer />
     </>
